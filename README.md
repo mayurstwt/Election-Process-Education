@@ -52,6 +52,26 @@ This project focuses on the "First-Time Voter" persona. The logic and UI are des
    npm run dev
    ```
 
+## ☁️ Google Cloud Deployment
+
+This application is containerized and ready to be deployed to **Google Cloud Run**.
+
+### Deployment Steps
+1. **Set your Google Cloud Project**:
+   ```bash
+   gcloud config set project cool-eye-492716-u3
+   ```
+2. **Build and Deploy**:
+   Run the following command in the root directory (replace `YOUR_API_KEY` with your actual Gemini API key):
+   ```bash
+   gcloud run deploy election-assistant \
+     --source . \
+     --platform managed \
+     --region us-central1 \
+     --allow-unauthenticated \
+     --set-build-env-vars VITE_GEMINI_API_KEY=YOUR_API_KEY
+   ```
+
 ## 🛡️ Assumptions & Notes
 - **Data Source**: The assistant relies on the internal knowledge of the Gemini 1.5 Flash model. Users are always encouraged to verify specifics with official sources like `Vote.org` or their local Secretary of State.
 - **Scope**: The current implementation focus is on the US Federal and State election processes.
