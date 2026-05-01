@@ -69,7 +69,7 @@ This application is containerized and ready to be deployed to **Google Cloud Run
      --platform managed \
      --region us-central1 \
      --allow-unauthenticated \
-     --set-build-env-vars VITE_GEMINI_API_KEY=YOUR_API_KEY
+     --set-env-vars VITE_GEMINI_API_KEY=YOUR_API_KEY
    ```
 
 ## 🛡️ Assumptions & Notes

@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
+// Support both Vite env and runtime injection for Cloud Run
+const API_KEY = (window as any).APP_CONFIG?.VITE_GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY || "";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 const SYSTEM_PROMPT = `
